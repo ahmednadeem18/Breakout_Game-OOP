@@ -2,6 +2,6 @@
 using namespace std;
 int main()
 {
-    cout << "Linking Git!\n";
+    cout << "Linking?!\n";
     return 0;
 }
