@@ -2,6 +2,6 @@
 using namespace std;
 int main()
 {
-    cout << "Linking?!\n";
+    cout << "Enough For Today?!\n";
     return 0;
 }
