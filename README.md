@@ -88,8 +88,8 @@ These bricks are implemented via a subclass: `PowerBrick : public Brick`, showca
 | **Association**        | `Ball` and `Brick` reference each other during collision  |
 | **Exception Handling** | Custom exceptions for file I/O, invalid moves             |
 | **Templates**          | `MyVector<T>` used throughout for collections             |
-|                        | `logEvent<T>()` function logs templated data types        |
-| **Logging**            | Every hit, collision, level-up, and load/save event       |
+| **Logging**            | `logEvent<T>()` function logs templated data types        |
+| **Features**           | Every hit, collision, level-up, and load/save event       |
 | **Binary Save/Load**   | Save/load entire game state via `fstream` and binary mode |
 
 📌 UML Diagram: [View UML](https://github.com/ahmednadeem18/BreakOut-Game/blob/c8a651f435b6d3914fde4b5622cfd2d3ac4c2b6c/UML%20Final.pdf)
