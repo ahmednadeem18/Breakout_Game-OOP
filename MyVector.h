@@ -1,5 +1,4 @@
 #pragma once
-#pragma once
 #include <iostream>
 using namespace std;
 
@@ -62,7 +61,7 @@ public:
 template <class type>
 MyVector<type>::MyVector() : len(0), cap(1) {
     arr = new type[cap];
-    
+
 }
 
 template <class type>
@@ -157,7 +156,7 @@ template <class type>
 void MyVector<type>::push(type value) {
     if (len == cap)
         double_cap();
-   
+
     arr[len] = value;
     len++;
 }
