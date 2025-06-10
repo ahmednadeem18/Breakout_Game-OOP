@@ -138,10 +138,14 @@
   <ItemGroup>
     <ClInclude Include="Ball.h" />
     <ClInclude Include="Brick.h" />
+    <ClInclude Include="HardBrick.h" />
     <ClInclude Include="Logger.h" />
     <ClInclude Include="MyStr.h" />
+    <ClInclude Include="NormalBrick.h" />
     <ClInclude Include="Paddle.h" />
+    <ClInclude Include="PowerBrick.h" />
     <ClInclude Include="PowerUp.h" />
+    <ClInclude Include="UnbreakableBrick.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
