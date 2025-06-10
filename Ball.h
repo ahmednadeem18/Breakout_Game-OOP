@@ -11,6 +11,7 @@ private:
     float velocityY;
     float radius;
 public:
+    Ball();
     Ball(float startX, float startY, float speedX, float speedY, float r);
     void update();
     void draw();

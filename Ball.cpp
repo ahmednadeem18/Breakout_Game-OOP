@@ -2,6 +2,8 @@
 #include "Brick.h"
 #include "Paddle.h"
 #include "raylib.h"
+Ball::Ball() : x(0), y(0), velocityX(0), velocityY(0), radius(5) {}
+
 Ball::Ball(float startX, float startY, float speedX, float speedY, float r)
     : x(startX), y(startY), velocityX(speedX), velocityY(speedY), radius(r) {
 }
