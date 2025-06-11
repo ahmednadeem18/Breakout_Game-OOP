@@ -136,6 +136,7 @@
     <ClCompile Include="MyStr.cpp" />
     <ClCompile Include="Paddle.cpp" />
     <ClCompile Include="PowerUp.cpp" />
+    <ClCompile Include="SaveLoadManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Ball.h" />
@@ -149,6 +150,7 @@
     <ClInclude Include="Paddle.h" />
     <ClInclude Include="PowerBrick.h" />
     <ClInclude Include="PowerUp.h" />
+    <ClInclude Include="SaveLoadManager.h" />
     <ClInclude Include="UnbreakableBrick.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
