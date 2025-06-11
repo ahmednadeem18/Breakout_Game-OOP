@@ -45,3 +45,13 @@ void Game::update(int screenWidth, int screenHeight) {
 void Game::draw() const {
     levels.at(currentLevel).draw();
 }
+
+void Game::loadGame(const MyStr& filename) {
+    SaveLoadManager::loadLevel(levels.at(currentLevel), filename);
+    logger.writeError(MyStr("Game state loaded."));
+}
+
+void Game::saveGame(const MyStr& filename) {
+    SaveLoadManager::saveLevel(levels.at(currentLevel), filename);
+    logger.writeError(MyStr("Game state saved."));
+}
