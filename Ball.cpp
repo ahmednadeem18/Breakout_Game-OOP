@@ -12,8 +12,7 @@ void Ball::update() {
     x += velocityX;
     y += velocityY;
 }
-
-void Ball::draw() {
+void Ball::draw() const {
     DrawCircle(static_cast<int>(x), static_cast<int>(y), radius, WHITE);
 }
 bool Ball::checkWallCollision(int screenWidth, int screenHeight) {

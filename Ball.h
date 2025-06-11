@@ -14,7 +14,7 @@ public:
     Ball();
     Ball(float startX, float startY, float speedX, float speedY, float r);
     void update();
-    void draw();
+    void draw() const;
     bool checkBrickCollision(Brick* brick);
     bool checkWallCollision(int screenWidth, int screenHeight);
     bool checkPaddleCollision(Paddle* paddle);
