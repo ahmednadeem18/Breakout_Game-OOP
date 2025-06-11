@@ -45,5 +45,3 @@ void Game::update(int screenWidth, int screenHeight) {
 void Game::draw() const {
     levels.at(currentLevel).draw();
 }
-
-
