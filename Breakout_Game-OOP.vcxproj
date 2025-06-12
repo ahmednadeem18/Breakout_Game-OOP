@@ -135,7 +135,6 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MyStr.cpp" />
     <ClCompile Include="Paddle.cpp" />
-    <ClCompile Include="PowerUp.cpp" />
     <ClCompile Include="SaveLoadManager.cpp" />
   </ItemGroup>
   <ItemGroup>

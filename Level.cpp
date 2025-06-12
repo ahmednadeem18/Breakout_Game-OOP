@@ -88,3 +88,12 @@ MyVector<Brick*>& Level::getBricks() {
 Paddle* Level::getPaddle() {
     return paddle;
 }
+const Paddle* Level::getPaddle() const {
+    return paddle;
+}
+const MyVector<Ball>& Level::getBalls() const {
+    return balls;
+}
+const MyVector<Brick*>& Level::getBricks() const {
+    return bricks;
+}

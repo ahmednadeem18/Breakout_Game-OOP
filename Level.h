@@ -20,4 +20,7 @@ public:
     MyVector<Ball>& getBalls();
     MyVector<Brick*>& getBricks();
     Paddle* getPaddle();
+    const Paddle* getPaddle() const;
+    const MyVector<Brick*>& getBricks() const;
+    const MyVector<Ball>& getBalls() const;
 };
