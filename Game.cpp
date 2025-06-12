@@ -1,5 +1,5 @@
 #include "Game.h"
-#include "raylib.h"
+#include <raylib.h>
 #include "SaveLoadManager.h"
 
 Game::Game() : score(0), currentLevel(0), logger(Logger::getInstance()) {
@@ -38,8 +38,9 @@ void Game::update(int screenWidth, int screenHeight) {
     if (levels.at(currentLevel).isCleared()) {
         currentLevel++;
         Level next;
-        next.load(currentLevel);
         levels.push(next);
+        int s = levels.size();
+        levels[s - 1].load(currentLevel);
     }
 }
 

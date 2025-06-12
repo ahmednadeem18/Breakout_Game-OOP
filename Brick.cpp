@@ -1,5 +1,5 @@
 #include "Brick.h"
-#include "raylib.h"
+#include <raylib.h>
 
 Brick::Brick(int x, int y, int w, int h, int hp)
     : x(x), y(y), width(w), height(h), health(hp) {

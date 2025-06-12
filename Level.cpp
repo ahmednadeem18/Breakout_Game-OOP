@@ -63,8 +63,13 @@ void Level::update(int screenWidth, int screenHeight) {
 }
 
 void Level::draw() const {
-    for (int i = 0; i < bricks.size(); i++) bricks.at(i)->draw();
-    for (int i = 0; i < balls.size(); i++) balls.at(i).draw();
+    for (int i = 0; i < bricks.size(); i++)
+    {
+        bricks.at(i)->draw();
+    }
+    for (int i = 0; i < balls.size(); i++) {
+        balls.at(i).draw();
+    }
     paddle->draw();
 }
 

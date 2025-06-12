@@ -1,5 +1,5 @@
 #include "Paddle.h"
-#include "raylib.h"
+#include <raylib.h>
 #include "Paddle.h"
 #include "PowerUp.h"
 

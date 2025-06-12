@@ -1,5 +1,5 @@
 #pragma once
-#include "raylib.h"
+#include <raylib.h>
 #include "Brick.h"
 #include "Paddle.h"
 
