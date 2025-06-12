@@ -8,7 +8,7 @@
 class Logger {
 public:
     static Logger& getInstance();
-    void initialize(const MyStr& filename);
+    void initialize(const char* arr);
     void cleanup();
     void writeError(const MyStr& error_message);
 

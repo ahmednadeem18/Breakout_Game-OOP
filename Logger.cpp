@@ -7,8 +7,8 @@ Logger& Logger::getInstance() {
     return instance;
 }
 
-void Logger::initialize(const MyStr& filename) {
-    file.open(filename.ToCharArray());
+void Logger::initialize(const char* arr) {
+    file.open(arr);
 }
 
 void Logger::cleanup() {

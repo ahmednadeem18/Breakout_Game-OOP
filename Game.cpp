@@ -4,9 +4,10 @@
 
 Game::Game() : score(0), currentLevel(0), logger(Logger::getInstance()) {
     Level level;
-    level.load(0);
+    
     levels.push(level);
-    logger.initialize(MyStr("log.txt"));
+    levels[0].load(0);
+    logger.initialize("log.txt");
 }
 
 void Game::start(int screenWidth, int screenHeight) {
