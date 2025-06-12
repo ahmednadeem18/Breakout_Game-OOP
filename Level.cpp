@@ -11,8 +11,8 @@ Level::Level() {
 }
 
 Level::~Level() {
-    /*for (int i = 0; i < bricks.size(); i++) delete bricks.at(i);*/
-    /*delete paddle;*/
+    for (int i = 0; i < bricks.size(); i++) delete bricks.at(i);
+    delete paddle;
 }
 
 void Level::load(int levelNumber) {
@@ -22,22 +22,23 @@ void Level::load(int levelNumber) {
     balls.push(Ball(400, 300, 2 + levelNumber, -2 - levelNumber, 8));
 
     int rows = 6;
-    int cols = 10; 
-    int brickWidth = 80;
+    int cols = 10;
+    int spacing = 10;
+    int brickWidth = 71;
     int brickHeight = 30;
+    int startX = 0;
     int startY = 50;
 
     for (int j = 0; j < rows; j++) {
         for (int i = 0; i < cols; i++) {
-            int x = i * brickWidth;
-            int y = startY + j * brickHeight;
+            int x = startX + i * (brickWidth + spacing);
+            int y = startY + j * (brickHeight + spacing);
 
             if (j == 0) bricks.push(new UnbreakableBrick(x, y, brickWidth, brickHeight));
-            else if (i==1&&j == 1) bricks.push(new PowerBrick(x, y, brickWidth, brickHeight, new ExpandPaddlePowerUp()));
-            else if (i==2&&j == 2) bricks.push(new PowerBrick(x, y, brickWidth, brickHeight, new MultiBallPowerUp()));
+            else if (i == 1 && j == 1) bricks.push(new PowerBrick(x, y, brickWidth, brickHeight, new ExpandPaddlePowerUp()));
+            else if (i == 2 && j == 2) bricks.push(new PowerBrick(x, y, brickWidth, brickHeight, new MultiBallPowerUp()));
             else if (j % 2 == 0) bricks.push(new HardBrick(x, y, brickWidth, brickHeight));
             else  bricks.push(new NormalBrick(x, y, brickWidth, brickHeight));
-            
         }
     }
 }
