@@ -60,7 +60,7 @@ public:
 };
 
 template <class type>
-MyVector<type>::MyVector() : len(0), cap(1) {
+MyVector<type>::MyVector() : len(0), cap(250) {
     arr = new type[cap];
 
 }

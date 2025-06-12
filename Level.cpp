@@ -11,7 +11,7 @@ Level::Level() {
 }
 
 Level::~Level() {
-    for (int i = 0; i < bricks.size(); i++) delete bricks.at(i);
+    /*for (int i = 0; i < bricks.size(); i++) delete bricks.at(i);*/
     delete paddle;
 }
 
