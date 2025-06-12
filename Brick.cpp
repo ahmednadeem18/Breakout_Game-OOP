@@ -24,3 +24,18 @@ bool Brick::isPowerBrick() const {
 Rectangle Brick::getRect() const {
     return { (float)x, (float)y, (float)width, (float)height };
 }
+int Brick::getX() const {
+    return x;
+}
+
+int Brick::getY() const {
+    return y;
+}
+
+int Brick::getWidth() const {
+    return width;
+}
+
+int Brick::getHeight() const {
+    return height;
+}

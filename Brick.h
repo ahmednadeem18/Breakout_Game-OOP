@@ -16,4 +16,9 @@ public:
     virtual bool isPowerBrick() const;
     Rectangle getRect() const;
     virtual ~Brick() {}
+    int getX() const;
+    int getY() const;
+    int getWidth() const;
+    int getHeight() const;
+
 };
