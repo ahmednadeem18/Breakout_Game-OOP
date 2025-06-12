@@ -23,6 +23,7 @@ private:
 public:
     MyVector();
     MyVector(const MyVector& other);
+
     MyVector(int count, type value);
     ~MyVector();
 

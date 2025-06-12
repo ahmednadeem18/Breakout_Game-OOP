@@ -5,6 +5,7 @@
 #include "PowerBrick.h"
 #include "PowerUp.h"
 
+
 Level::Level() {
     paddle = new Paddle(300, 450, 100, 20, 8);
 }
