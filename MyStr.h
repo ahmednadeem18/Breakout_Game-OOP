@@ -93,6 +93,7 @@ public:
 	const char charstring(int i);
 	MyStr& operator=(const char* right);
 	void convertionToChar(const int num, char arr[]);
+	int Length()const;
 
 	void display() const;
 
