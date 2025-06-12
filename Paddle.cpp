@@ -32,3 +32,7 @@ void Paddle::expand() {
 void Paddle::catchPowerUp(PowerUp* power) {
 
 }
+void Paddle::updatePosition(int newX, int newWidth) {
+    x = newX;
+    width = newWidth;
+}
