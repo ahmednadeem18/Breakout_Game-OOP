@@ -35,6 +35,10 @@ void Game::handleInput() {
 
 void Game::update(int screenWidth, int screenHeight) {
     levels.at(currentLevel).update(screenWidth, screenHeight);
+    if (levels.at(currentLevel).getBalls().size() == 0) {
+        CloseWindow();  
+        return;
+    }
     if (levels.at(currentLevel).isCleared()) {
         currentLevel++;
         Level next;
