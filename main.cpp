@@ -1,7 +1,7 @@
-#include <iostream>
-using namespace std;
-int main()
-{
-    cout << "Enough For Today?!\n";
+#include "Game.h"
+
+int main() {
+    Game game;
+    game.start(800, 600);
     return 0;
 }
