@@ -11,7 +11,7 @@ Game::Game() : score(0), currentLevel(0), logger(Logger::getInstance()) {
 }
 
 void Game::start(int screenWidth, int screenHeight) {
-    InitWindow(screenWidth, screenHeight, "Breakout++");
+    InitWindow(screenWidth, screenHeight, "Breakout");
     SetTargetFPS(60);
     while (!WindowShouldClose()) {
         handleInput();

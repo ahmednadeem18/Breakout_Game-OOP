@@ -19,16 +19,25 @@ void Level::load(int levelNumber) {
     number = levelNumber;
     bricks.clear();
     balls.clear();
-    balls.push(Ball(400, 300, 4 + levelNumber, -4 - levelNumber, 8));
-    for (int i = 0; i < 6; i++) {
-        for (int j = 0; j < 5; j++) {
-            int x = 100 + i * 70;
-            int y = 50 + j * 35;
-            if (j == 0) bricks.push(new UnbreakableBrick(x, y, 60, 25));
-            else if (j == 1) bricks.push(new PowerBrick(x, y, 60, 25, new ExpandPaddlePowerUp()));
-            else if (j == 2) bricks.push(new PowerBrick(x, y, 60, 25, new MultiBallPowerUp()));
-            else if (j % 2 == 0) bricks.push(new NormalBrick(x, y, 60, 25));
-            else bricks.push(new HardBrick(x, y, 60, 25));
+    balls.push(Ball(400, 300, 2 + levelNumber, -2 - levelNumber, 8));
+
+    int rows = 6;
+    int cols = 10; 
+    int brickWidth = 80;
+    int brickHeight = 30;
+    int startY = 50;
+
+    for (int j = 0; j < rows; j++) {
+        for (int i = 0; i < cols; i++) {
+            int x = i * brickWidth;
+            int y = startY + j * brickHeight;
+
+            if (j == 0) bricks.push(new UnbreakableBrick(x, y, brickWidth, brickHeight));
+            else if (i==1&&j == 1) bricks.push(new PowerBrick(x, y, brickWidth, brickHeight, new ExpandPaddlePowerUp()));
+            else if (i==2&&j == 2) bricks.push(new PowerBrick(x, y, brickWidth, brickHeight, new MultiBallPowerUp()));
+            else if (j % 2 == 0) bricks.push(new HardBrick(x, y, brickWidth, brickHeight));
+            else  bricks.push(new NormalBrick(x, y, brickWidth, brickHeight));
+            
         }
     }
 }
@@ -47,9 +56,9 @@ void Level::update(int screenWidth, int screenHeight) {
                             PowerBrick* pb = static_cast<PowerBrick*>(bricks.at(j));
                             pb->releasePowerUp()->activate(paddle, &balls);
                         }
-                        delete bricks.at(j);
-                        balls.delete_at(i);
+                        bricks.delete_at(j);
                         j--;
+                        continue;
                     }
                     break;
                 }
