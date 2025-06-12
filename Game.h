@@ -16,6 +16,6 @@ public:
     void handleInput();
     void update(int screenWidth, int screenHeight);
     void draw() const;
-    void loadGame(const MyStr& filename);
-    void saveGame(const MyStr& filename);
+    void loadGame();
+    void saveGame();
 };

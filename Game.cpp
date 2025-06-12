@@ -11,7 +11,8 @@ Game::Game() : score(0), currentLevel(0), logger(Logger::getInstance()) {
 }
 
 void Game::start(int screenWidth, int screenHeight) {
-    InitWindow(800, 600, "Game");
+    /*InitWindow(800, 600, "Game");*/
+    InitWindow(screenWidth, screenHeight, "BreakOut");
     SetTargetFPS(60);
     while (!WindowShouldClose()) {
         handleInput();
@@ -29,8 +30,8 @@ void Game::handleInput() {
     Paddle* paddle = levels.at(currentLevel).getPaddle();
     if (IsKeyDown(KEY_LEFT)) paddle->moveLeft();
     if (IsKeyDown(KEY_RIGHT)) paddle->moveRight(GetScreenWidth());
-    if (IsKeyPressed(KEY_S)) saveGame(MyStr("save.dat"));
-    if (IsKeyPressed(KEY_L)) loadGame(MyStr("save.dat"));
+    if (IsKeyPressed(KEY_S)) saveGame();
+    if (IsKeyPressed(KEY_L)) loadGame();
 }
 
 void Game::update(int screenWidth, int screenHeight) {
@@ -52,12 +53,12 @@ void Game::draw() const {
     levels.at(currentLevel).draw();
 }
 
-void Game::loadGame(const MyStr& filename) {
-    SaveLoadManager::loadLevel(levels.at(currentLevel), filename);
+void Game::loadGame() {
+    SaveLoadManager::loadLevel(levels.at(currentLevel), "data.bin");
     logger.writeError(MyStr("Game state loaded."));
 }
 
 void Game::saveGame(const MyStr& filename) {
-    SaveLoadManager::saveLevel(levels.at(currentLevel), filename);
+    SaveLoadManager::saveLevel(levels.at(currentLevel), "data.bin");
     logger.writeError(MyStr("Game state saved."));
 }

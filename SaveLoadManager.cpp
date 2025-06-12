@@ -7,8 +7,8 @@
 #include "MyStr.h"
 #include <fstream>
 
-void SaveLoadManager::saveLevel(const Level& level, const MyStr& filename) {
-    std::ofstream out(filename.ToCharArray(), std::ios::binary);
+void SaveLoadManager::saveLevel(const Level& level, const char* filename) {
+    std::ofstream out(filename, std::ios::binary);
     Rectangle rect = level.getPaddle()->getRect();
     out.write((char*)&rect.x, sizeof(float));
     out.write((char*)&rect.width, sizeof(float));
@@ -50,8 +50,8 @@ void SaveLoadManager::saveLevel(const Level& level, const MyStr& filename) {
     out.close();
 }
 
-void SaveLoadManager::loadLevel(Level& level, const MyStr& filename) {
-    std::ifstream in(filename.ToCharArray(), std::ios::binary);
+void SaveLoadManager::loadLevel(Level& level, const char* filename) {
+    std::ifstream in(filename, std::ios::binary);
     if (!in) return;
 
     float px, pw;
