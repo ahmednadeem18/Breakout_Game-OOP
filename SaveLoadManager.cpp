@@ -57,8 +57,8 @@ void SaveLoadManager::loadLevel(Level& level, const MyStr& filename) {
     float px, pw;
     in.read((char*)&px, sizeof(float));
     in.read((char*)&pw, sizeof(float));
-    Paddle* paddle = new Paddle(px, 450, pw, 20, 8);
-    *level.getPaddle() = *paddle;
+    level.getPaddle()->updatePosition(px, pw);
+
 
     int ballCount;
     in.read((char*)&ballCount, sizeof(int));
