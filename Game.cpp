@@ -7,11 +7,11 @@ Game::Game() : score(0), currentLevel(0), logger(Logger::getInstance()) {
     
     levels.push(level);
     levels[0].load(0);
-    logger.initialize("log.txt");
+    //logger.initialize("log.txt");
 }
 
 void Game::start(int screenWidth, int screenHeight) {
-    InitWindow(screenWidth, screenHeight, "Breakout");
+    InitWindow(800, 600, "Game");
     SetTargetFPS(60);
     while (!WindowShouldClose()) {
         handleInput();

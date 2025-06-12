@@ -38,7 +38,8 @@ bool Ball::checkPaddleCollision(Paddle* paddle) {
 }
 
 bool Ball::checkBrickCollision(Brick* brick) {
-    Rectangle brickRect = brick->getRect();
+    //Rectangle brickRect = brick->getRect();
+    Rectangle brickRect = { (float)brick->getX(), (float)brick->getY(), (float)brick->getWidth(), (float)brick->getHeight() };
     Rectangle ballRect = { x - radius, y - radius, radius * 2, radius * 2 };
     if (CheckCollisionRecs(ballRect, brickRect)) {
         velocityY *= -1;
