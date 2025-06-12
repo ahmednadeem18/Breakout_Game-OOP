@@ -18,6 +18,7 @@ public:
     Rectangle getRect() const;
     void expand();
     void catchPowerUp(PowerUp* power);
+    void updatePosition(int newX, int newWidth);
 };
 
 
