@@ -10,7 +10,7 @@ private:
 	char* charString;
 	int str_len(const char* Arr);
 public:
-
+	
 	MyStr();
 	// coverstion Constructor
 	MyStr(const char* Arr);
@@ -65,7 +65,7 @@ public:
 	MyStr& toUpper();
 
 
-	// function with the prototype
+	 // function with the prototype
 	MyStr& Trimm();
 
 
