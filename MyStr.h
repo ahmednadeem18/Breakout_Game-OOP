@@ -31,6 +31,7 @@ public:
 	char& operator [] (int index);
 	//Eqaulity Operator
 	bool operator == (const MyStr& str) const;
+	bool operator != (const MyStr& str) const;
 	char* ToCharArray() const;
 	//less then check Operator
 	bool operator<(const MyStr& str) const;

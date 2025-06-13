@@ -620,7 +620,16 @@ int MyStr:: Length() const {
 	return this->len;
 }
 
+bool MyStr::operator != (const MyStr& str) const {
+	if (this->len != str.len)
+		return true;
 
+	for (int i = 0; i < this->len; i++) {
+		if (this->charString[i] != str.charString[i])
+			return true;
+	}
+	return false;
+}
 
 
 
