@@ -1,24 +1,28 @@
-#pragma once
-#include <raylib.h>
+#ifndef PADDLE_H
+#define PADDLE_H
 
-class PowerUp;
+#include <raylib.h>
+#include <chrono>
 
 class Paddle {
 private:
-    int x;
-    int y;
-    int width;
-    int height;
-    int speed;
+    Rectangle rectangle;
+    float movementSpeed;
+    float originalWidth;
+    float currentWidth;
+    float maxWidth;
+    std::chrono::steady_clock::time_point powerUpTime;
+    bool hasPowerUp;
+
 public:
-    Paddle(int startX, int startY, int w, int h, int s);
-    void moveLeft();
-    void moveRight(int screenWidth);
+    Paddle();
+    void update( );
     void draw();
-    Rectangle getRect() const;
-    void expand();
-    void catchPowerUp(PowerUp* power);
-    void updatePosition(int newX, int newWidth);
+    void increaseSize();
+    void resetSize();
+    Rectangle& getRectangle();
+    bool getHasPowerUp() const;
+    float getPowerUpTimeLeft() const;
 };
 
-
+#endif
