@@ -1,21 +1,39 @@
-//#pragma once
-//#include "MyVector.h"
-//#include "Level.h"
-//#include "MyStr.h"
-//#include "Logger.h"
-//
-//class Game {
-//private:
-//    MyVector<Level> levels;
-//    int score;
-//    int currentLevel;
-//    Logger& logger;
-//public:
-//    Game();
-//    void start(int screenWidth, int screenHeight);
-//    void handleInput();
-//    void update(int screenWidth, int screenHeight);
-//    void draw() const;
-//    void loadGame();
-//    void saveGame();
-//};
+#ifndef GAME_H
+#define GAME_H
+
+#include "MyVector.h"
+#include "Ball.h"
+#include "Paddle.h"
+#include "Brick.h"
+#include "PowerUp.h"
+#include "Logger.h"
+#include <raylib.h>
+
+class Game {
+private:
+    MyVector<Ball> balls;
+    MyVector<Brick*> bricks;
+    MyVector<PowerUp*> powerUps;
+    Paddle paddle;
+    int score;
+    int currentLevel;
+    bool isGameOver;
+    bool levelComplete;
+    bool isPaused;
+    Color backgroundColor;
+    Logger& logger;
+
+    void generateLevel();
+    void checkCollisions();
+    void checkGameState();
+    void cleanPowerUps();
+
+public:
+    Game();
+    ~Game();
+    void resetGame();
+    void update( );
+    void draw();
+};
+
+#endif
