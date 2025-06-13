@@ -130,28 +130,25 @@
     <ClCompile Include="Ball.cpp" />
     <ClCompile Include="Brick.cpp" />
     <ClCompile Include="Game.cpp" />
-    <ClCompile Include="Level.cpp" />
     <ClCompile Include="Logger.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MyStr.cpp" />
     <ClCompile Include="Paddle.cpp" />
+    <ClCompile Include="Position2D.cpp" />
+    <ClCompile Include="PowerUp.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Ball.h" />
     <ClInclude Include="Brick.h" />
     <ClInclude Include="Game.h" />
-    <ClInclude Include="HardBrick.h" />
-    <ClInclude Include="Level.h" />
     <ClInclude Include="Logger.h" />
     <ClInclude Include="MyStr.h" />
-    <ClInclude Include="NormalBrick.h" />
     <ClInclude Include="Paddle.h" />
-    <ClInclude Include="PowerBrick.h" />
+    <ClInclude Include="Position2D.h" />
     <ClInclude Include="PowerUp.h" />
-    <ClInclude Include="UnbreakableBrick.h" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="log.txt" />
+    <Text Include="game_log.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
