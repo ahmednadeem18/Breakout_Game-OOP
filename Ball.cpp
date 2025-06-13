@@ -1,72 +1,62 @@
 #include "Ball.h"
-#include "Brick.h"
-#include "Paddle.h"
-#include <raylib.h>
-Ball::Ball() : x(0), y(0), velocityX(0), velocityY(0), radius(5) {}
 
-Ball::Ball(float startX, float startY, float speedX, float speedY, float r)
-    : x(startX), y(startY), velocityX(speedX), velocityY(speedY), radius(r) {
+Ball::Ball() : radius(10) {
+    position = Position2D(400, 300);
+    velocity = Position2D(3, -3);
 }
 
-void Ball::update() {
-    x += velocityX;
-    y += velocityY;
+void Ball::reset() {
+    position = Position2D(400, 300);
+    velocity = Position2D(3, -3);
 }
-void Ball::draw() const {
-    DrawCircle(static_cast<int>(x), static_cast<int>(y), radius, WHITE);
-}
-bool Ball::checkWallCollision(int screenWidth, int screenHeight) {
-    if (x - radius <= 0 || x + radius >= screenWidth) {
-        velocityX *= -1;
-        return true;
+
+void Ball::update( ) {
+    position.x += velocity.x ;
+    position.y += velocity.y ;
+
+    if (position.x <= radius) {
+        velocity.x *= -1;
     }
-    if (y - radius <= 0) {
-        velocityY *= -1;
+    if (position.x >= 800 - radius) {
+        velocity.x *= -1;
+    }
+    if (position.y <= radius) {
+        velocity.y *= -1;
+    }
+}
+
+void Ball::draw() {
+    DrawCircle(position.x, position.y, radius, RAYWHITE);
+}
+
+bool Ball::checkCollision(Rectangle rect) {
+    Rectangle ballRect = {
+        position.x - radius,
+        position.y - radius,
+        radius * 2,
+        radius * 2
+    };
+
+    if (CheckCollisionRecs(ballRect, rect)) {
+
+        if (position.y < rect.y || position.y > rect.y + rect.height) {
+            velocity.y *= -1;
+        }
+        else {
+            velocity.x *= -1;
+        }
         return true;
     }
     return false;
 }
 
-bool Ball::checkPaddleCollision(Paddle* paddle) {
-    Rectangle paddleRect = paddle->getRect();
-    Rectangle ballRect = { x - radius, y - radius, radius * 2, radius * 2 };
-    if (CheckCollisionRecs(ballRect, paddleRect)) {
-        velocityY *= -1;
+bool Ball::isBelowScreen() {
+    if (position.y > 600) {
         return true;
     }
     return false;
 }
 
-bool Ball::checkBrickCollision(Brick* brick) {
-    //Rectangle brickRect = brick->getRect();
-    Rectangle brickRect = { (float)brick->getX(), (float)brick->getY(), (float)brick->getWidth(), (float)brick->getHeight() };
-    Rectangle ballRect = { x - radius, y - radius, radius * 2, radius * 2 };
-    if (CheckCollisionRecs(ballRect, brickRect)) {
-        velocityY *= -1;
-        return true;
-    }
-    return false;
-}
-float Ball::getX() const {
-    return x;
-}
-
-float Ball::getY() const {
-    return y;
-}
-
-float Ball::getVelocityX() const {
-    return velocityX;
-}
-
-float Ball::getVelocityY() const {
-    return velocityY;
-}
-
-void Ball::setVelocityX(float vx) {
-    velocityX = vx;
-}
-
-void Ball::setVelocityY(float vy) {
-    velocityY = vy;
-}
+Position2D& Ball::getPosition() { return position; }
+Position2D& Ball::getVelocity() { return velocity; }
+void Ball::setVelocity(Position2D newVel) { velocity = newVel; }
