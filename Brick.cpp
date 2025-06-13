@@ -1,41 +1,37 @@
 #include "Brick.h"
-#include <raylib.h>
 
-Brick::Brick(int x, int y, int w, int h, int hp)
-    : x(x), y(y), width(w), height(h), health(hp) {
-}
-
-void Brick::hit() {
-    if (health > 0) health--;
+Brick::Brick(float x, float y, float width, float height) : isDestroyed(false) {
+    rectangle = { x, y, width, height };
 }
 
-bool Brick::isDestroyed() const {
-    return health <= 0;
-}
+bool Brick::getIsDestroyed() const { return isDestroyed; }
+Rectangle Brick::getRectangle() const { return rectangle; }
 
-void Brick::draw() const {
-    DrawRectangle(x, y, width, height, RED);
-}
+NormalBrick::NormalBrick(float x, float y) : Brick(x, y) {}
+void NormalBrick::hit() { isDestroyed = true; }
+void NormalBrick::draw() { DrawRectangleRec(rectangle, RED); }
+MyStr NormalBrick::getType() const { return MyStr("Normal"); }
 
-bool Brick::isPowerBrick() const {
-    return false;
+HardBrick::HardBrick(float x, float y) : Brick(x, y), hp(2) {}
+void HardBrick::hit() {
+    hp--;
+    if (hp <= 0) {
+        isDestroyed = true;
+    }
 }
+void HardBrick::draw() { DrawRectangleRec(rectangle, ORANGE); }
+MyStr HardBrick::getType() const { return MyStr("Hard"); }
 
-Rectangle Brick::getRect() const {
-    return { (float)x, (float)y, (float)width, (float)height };
-}
-int Brick::getX() const {
-    return x;
-}
+UnbreakableBrick::UnbreakableBrick(float x, float y) : Brick(x, y) {}
+void UnbreakableBrick::hit() {}
+void UnbreakableBrick::draw() { DrawRectangleRec(rectangle, GRAY); }
+MyStr UnbreakableBrick::getType() const { return MyStr("Unbreakable"); }
 
-int Brick::getY() const {
-    return y;
+PowerBrick::PowerBrick(float x, float y) : Brick(x, y), powerReleased(false) {}
+void PowerBrick::hit() {
+    isDestroyed = true;
+    powerReleased = true;
 }
-
-int Brick::getWidth() const {
-    return width;
-}
-
-int Brick::getHeight() const {
-    return height;
-}
+void PowerBrick::draw() { DrawRectangleRec(rectangle, PURPLE); }
+MyStr PowerBrick::getType() const { return MyStr("Power"); }
+bool PowerBrick::isPowerReleased() const { return powerReleased; }
