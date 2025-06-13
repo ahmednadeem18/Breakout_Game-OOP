@@ -1,0 +1,23 @@
+Breakout-Game/
+├── 
+├── include/
+│   └── Breakout/
+│       ├── Ball.h            
+│       ├── Brick.h           
+│       ├── Game.h
+│       ├── Logger.h          
+│       ├── MyStr.h           
+│       ├── Paddle.h
+│       ├── Position2D.h      
+│       └── PowerUp.h
+├── src/
+│   ├── Ball.cpp             
+│   ├── Brick.cpp             
+│   ├── Game.cpp
+│   ├── Logger.cpp           
+│   ├── main.cpp              
+│   ├── MyStr.cpp       
+│   ├── Paddle.cpp           
+│   ├── Position2D.cpp        
+│   └── PowerUp.cpp           
+└──     
