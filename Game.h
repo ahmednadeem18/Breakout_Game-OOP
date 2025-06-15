@@ -22,7 +22,12 @@ private:
     bool isPaused;
     Color backgroundColor;
     Logger& logger;
+    Sound brickSound;
+    Sound paddleSound;
+    Sound powerupSound;
 
+    void initAudio();
+    void cleanupAudio();
     void generateLevel();
     void checkCollisions();
     void checkGameState();

@@ -5,12 +5,14 @@
 Game::Game() : score(0), currentLevel(1), isGameOver(false),
 levelComplete(false), isPaused(false), backgroundColor(DARKBLUE),
 logger(Logger::getInstance()) {
+    initAudio();
     logger.initialize("game_log.txt");
     generateLevel();
     balls.pushBack(Ball());
 }
 
 Game::~Game() {
+    cleanupAudio();
     for (int i = 0; i < bricks.getSize(); i++) {
         delete bricks.at(i);
     }
@@ -284,4 +286,16 @@ void Game::draw() {
     }
 
     EndDrawing();
+}
+void Game::initAudio() {
+    InitAudioDevice();
+    brickSound = LoadSound("sounds/brick.wav");
+    paddleSound = LoadSound("sounds/paddle.wav");
+    powerupSound = LoadSound("sounds/powerup.wav");
+}
+void Game::cleanupAudio() {
+    UnloadSound(brickSound);
+    UnloadSound(paddleSound);
+    UnloadSound(powerupSound);
+    CloseAudioDevice();
 }
