@@ -73,6 +73,7 @@ void Game::generateLevel() {
 void Game::checkCollisions() {
     for (int i = 0; i < balls.getSize(); i++) {
         if (balls.at(i).checkCollision(paddle.getRectangle())) {
+            PlaySound(paddleSound);
             balls.at(i).setVelocity(Position2D(
                 balls.at(i).getVelocity().x,
                 -abs(balls.at(i).getVelocity().y)
@@ -87,6 +88,7 @@ void Game::checkCollisions() {
 
         for (int j = 0; j < balls.getSize(); j++) {
             if (balls.at(j).checkCollision(bricks.at(i)->getRectangle())) {
+                PlaySound(brickSound);
                 bricks.at(i)->hit();
 
                 if (bricks.at(i)->getType() == MyStr("Power")) {
@@ -119,6 +121,7 @@ void Game::checkCollisions() {
     for (int i = 0; i < powerUps.getSize(); i++) {
         if (!powerUps.at(i)->getIsActive() &&
             powerUps.at(i)->checkPaddleCollision(paddle.getRectangle())) {
+            PlaySound(powerupSound);
             powerUps.at(i)->applyEffect(paddle, balls);
         }
     }
